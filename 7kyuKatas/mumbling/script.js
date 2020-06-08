@@ -12,11 +12,19 @@ function accum(s) {
     new_arr = s.split('');
     result_arr = []
     for(let i = 0; i < new_arr.length; i++) {
-        for(let k = 0; k < new_arr.length; k++) {
-            result_arr.push(new_arr[i]);
+        if(i == 0) {
+            result_arr.push(new_arr[i].toUpperCase())
+        } else if (i > 0) {
+            result_arr.push('-' + new_arr[i].toUpperCase())
+        }
+        for(let k = new_arr.length - i; k < new_arr.length; k++) {
+            // if(new_arr.length == new_arr.length) {
+            //     result_arr.push(new_arr[i])
+            // }
+            result_arr.push(new_arr[i].toLowerCase())
         }
     }
-    console.log(result_arr)
+    return result_arr.join('')
 }
 
 console.log(accum("abc"))

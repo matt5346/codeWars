@@ -1,15 +1,26 @@
-// 7 kyu Jaden Casing String
+// 7 kyu growth of a Population
 
-// Example:
+// In a small town the population is p0 = 1000 at the beginning 
+// of a year. The population regularly increases by 2 percent 
+// per year and moreover 50 new inhabitants per year come to 
+// live in the town. How many years does the town need to see 
+// its population greater or equal to p = 1200 inhabitants?
 
-// Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
-// Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+function nbYear(p0, percent, aug, p) {
+    let percentages = percent * 0.01;
+    let yearCounter = 0;
+    let totalPopulation = p0;
+    function nbYear(p0, percent, aug, p) {
+        console.log(p0, percent, aug, p, totalPopulation)
+        if(totalPopulation < p) {
+            yearCounter++;
+            return totalPopulation = p0 + (totalPopulation * percentages + aug)
+        }
+        if(totalPopulation > p) {
+            return yearCounter;
+        }
+    }
+    return nbYear(p0, percent, aug, p);
+}
 
-String.prototype.toJadenCase = function () {
-    let arr = this.split(' ');
-    return arr.map(word => {
-        return word.charAt(0).toUpperCase() + word.substr(1);
-    }).join(' ')
-};
-var str = "How can mirrors be real if our eyes aren't real";
-console.log(str.toJadenCase())
+console.log(nbYear(1500, 5, 100, 5000))

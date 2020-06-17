@@ -1,36 +1,19 @@
-// 7 kyu Complementary DNA solution
-// Deoxyribonucleic acid (DNA) is a chemical 
-// found in the nucleus of cells and carries 
-// the "instructions" for the development and 
-// functioning of living organisms.
+// 7 kyu growth of a Population
 
-// If you want to know more http://en.wikipedia.org/wiki/DNA
+// In a small town the population is p0 = 1000 at the beginning 
+// of a year. The population regularly increases by 2 percent 
+// per year and moreover 50 new inhabitants per year come to 
+// live in the town. How many years does the town need to see 
+// its population greater or equal to p = 1200 inhabitants?
 
-// In DNA strings, symbols "A" and "T" are 
-// complements of each other, as "C" and "G". 
-// You have function with one side of the DNA 
-// (string, except for Haskell); you need to 
-// get the other complementary side. DNA strand 
-// is never empty or there is no DNA at all 
-// (again, except for Haskell).
-
-function DNAStrand(dna){
-    let new_arr = dna.split('');
-    return new_arr.map(char => {
-        if(char == 'A') {
-            return 'T';
-        }
-        if(char == 'T') {
-            return 'A';
-        }
-        if(char == 'G') {
-            return 'C';
-        }
-        if(char == 'C') {
-            return 'G';
-        }
-    }).join('')
+function nbYear(p0, percent, aug, p) {
+    let percentages = percent * 0.01;
+    let yearCounter = 0;
+    for(let i = 0; p0 < p; i++) {
+        yearCounter++;
+        let yearGrowth = p0 * percentages + aug;
+        p0 += yearGrowth;
+    }
+    return yearCounter;
 }
-
-console.log(DNAStrand("AAAA"))
-console.log(DNAStrand("ATTGC"))
+console.log(nbYear(1500, 5, 100, 5000))

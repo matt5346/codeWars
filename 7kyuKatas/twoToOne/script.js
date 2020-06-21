@@ -1,20 +1,19 @@
-// 7 kyu Find the new perfect square !
-
-// You might know some pretty large perfect squares.
-// But what about the NEXT one?
-// Complete the findNextSquare method that finds the next
-// integral perfect square after the one passed as a parameter.
-// Recall that an integral perfect square is an integer n such
-// that sqrt(n) is also an integer.
+// 7 kyu two to One
+// Take 2 strings s1 and s2 including only letters from ato z.
+// Return a new sorted string, the longest possible,
+// containing distinct letters,
 //
-// If the parameter is itself not a perfect square then -1 should
-// be returned. You may assume the parameter is positive.
+// each taken only once - coming from s1 or s2.
+// Examples:
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy".
 
-function findNextSquare(sq) {
-    if(Math.sqrt(sq) % 1 == 0) {
-        return (Math.sqrt(sq) + 1)**2;
-    }
-    return -1;
+function longest(s1, s2) {
+    let new_arr = s1.concat(s2)
+    let regExp_filter = /([a-z])(?=.*\1)/g
+    let result = new_arr.replace(regExp_filter, "").split("")
+    return result.sort().join("")
 }
 
-console.log(findNextSquare(121));
+console.log(longest("aretheyhere", "yestheyarehere"));

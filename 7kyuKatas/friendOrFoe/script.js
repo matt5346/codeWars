@@ -1,12 +1,21 @@
-// 7 kyu Binary Addition
+// 7 kyu Friend or Foe?
+// Make a program that filters a list of strings
+// and returns a list with only your friends name in it.
+//
+// If a name has exactly 4 letters in it, you can be
+// sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
 
-// Implement a function that adds two numbers together and returns
-// their sum in binary. The conversion can be done before, or after the addition.
+// Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+//
+// i.e.
 
-function addBinary(a,b) {
-    let result = (a + b)**2
-    // return result.toString()
-    return '11'
+function friend(friends){
+    return friends.filter(item => {
+        item.split('')
+        if(item.length === 4) {
+            return item
+        }
+    })
 }
 
-console.log(addBinary(1,2))
+console.log(friend(["Ryan", "Kieran", "Mark"]))
